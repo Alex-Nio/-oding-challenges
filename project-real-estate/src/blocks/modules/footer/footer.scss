@@ -1,0 +1,109 @@
+// footer scss
+.footer-content {
+
+	&__inner {
+		@include fdrjsb_aic;
+		padding-top: 38px;
+		margin: 0 0 92px 0;
+		border-top: 1px solid rgba(143, 149, 172, 0.2);
+	}
+}
+
+.adress {
+	font-family: 'Formular';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.4rem;
+	line-height: 18px;
+}
+
+.footer-actions {
+	@include fdrje_aic;
+}
+
+.scroll-top {
+	position: relative;
+	@include fdrjsb_aic;
+	background: transparent;
+	margin-bottom: 17px;
+	transition: all 0.3s linear;
+
+	&__control {
+		@include fdrjc_aic;
+		width: 30px;
+		height: 30px;
+		border-radius: 100px;
+		background-color: $nav_background;
+		margin-left: 14px;
+		transition: all 0.3s linear;
+		z-index: 1;
+
+		& img {
+			transform: scale(1, -1);
+		}
+	}
+
+	&:hover {
+		& .scroll-top__control {
+			transform: scale(1.13);
+			transition: all 0.3s linear;
+		}
+	}
+}
+
+.find-us {
+	@include fdcjc_ais;
+	cursor: default;
+}
+
+.phone {
+	margin-right: 17%;
+}
+
+.phone a {
+	transition: all 0.3s linear;
+
+	&:hover {
+		color: $red;
+		transition: all 0.3s linear;
+	}
+}
+
+.contact-us {
+	position: relative;
+	color: $red;
+
+	&:hover {
+		color: $red;
+
+		&::after {
+			width: 100%;
+			transition: all 0.3s linear;
+		}
+	}
+
+	&::after {
+		position: absolute;
+		content: "";
+		bottom: -2px;
+		left: 0;
+		width: 0;
+		border-bottom: 1px solid $red;
+		transition: all 0.3s linear;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.footer-content__inner {
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.find-us {
+		align-items: center;
+	}
+
+	.phone {
+		margin: 40px 0;
+	}
+}

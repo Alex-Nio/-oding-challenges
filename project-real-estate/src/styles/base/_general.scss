@@ -1,0 +1,377 @@
+// -----------------------------------------------
+// --------------MAIN SETTINGS--------------------
+// -----------------------------------------------
+
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-tap-highlight-color: transparent;
+}
+
+html {
+	font-size: 62.2%;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+//? Общая обёртка
+.full-wrapper {
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+//? Размеры контейнеров
+.container {
+	position: relative;
+	max-width: 1220px;
+	padding: 0 10px;
+	margin: 0 auto;
+
+	&--big {
+		max-width: 1470px;
+	}
+}
+
+@media screen and (max-width: 1280px) {
+	.container {
+		padding: 0 20px;
+	}
+}
+
+body {
+	position: relative;
+	font-family: $base_ff;
+	font-size: $base_fz;
+	line-height: 1.5;
+	background: $page_background;
+	overflow-x: hidden;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+
+	&.blocked {
+		position: fixed;
+	}
+}
+
+main {
+	flex: 1;
+}
+
+footer {
+	margin-top: auto;
+}
+
+ul,
+li {
+	list-style-type: none;
+}
+
+img {
+	display: block;
+}
+
+a {
+	font-family: inherit;
+	cursor: pointer;
+	color: inherit;
+	text-decoration: none;
+	transition: color 0.3s ease;
+
+	&:hover {
+		color: $base_hover;
+		transition: color 0.3s ease;
+	}
+}
+
+button {
+	cursor: pointer;
+	outline: none;
+	border: transparent;
+	transition: all 0.3s linear;
+}
+
+// ------------------------------------------------
+// -------------------FONTS------------------------
+// ------------------------------------------------
+
+.title {
+	color: $white;
+}
+
+.text {
+	color: #2C2E3E;
+
+	&--small {
+		@include ff($ff_F, $r, 1.4rem);
+		line-height: 18px;
+		color: $gl;
+	}
+
+	&--big {
+		color: #2C2E3E;
+	}
+}
+
+@media screen and(min-width: 1600px) {
+	h1 {
+		@include ff($ff_F, $b, 4.8rem);
+		line-height: 55px;
+	}
+
+	h2 {
+		@include ff($ff_F, $b, 3.5rem);
+		line-height: 40px;
+	}
+
+	h3 {
+		@include ff($ff_F, $b, 2.5rem);
+		line-height: 30px;
+	}
+
+	h5 {
+		@include ff($ff_F, $b, 1.6rem);
+		line-height: 20px;
+	}
+
+	.text {
+		&--big {
+			@include ff($ff_F, $l, 2rem);
+			line-height: 34px;
+		}
+	}
+}
+
+@media screen and(min-width: 1280px) {
+	h1 {
+		@include ff($ff_F, $b, 4.2rem);
+		line-height: 50px;
+	}
+
+	h2 {
+		@include ff($ff_F, $b, 3rem);
+		line-height: 35px;
+	}
+
+	h3 {
+		@include ff($ff_F, $b, 2rem);
+		line-height: 26px;
+	}
+
+	h5 {
+		@include ff($ff_F, $b, 1.4rem);
+		line-height: 17.12px;
+	}
+
+	.text {
+		&--big {
+			@include ff($ff_F, $l, 1.8rem);
+			line-height: 26px;
+		}
+	}
+}
+
+@media screen and(min-width: 768px) {
+	h1 {
+		@include ff($ff_F, $b, 3rem);
+		line-height: 35px;
+	}
+
+	h2 {
+		@include ff($ff_F, $b, 2.6rem);
+		line-height: 33px;
+	}
+
+	h3 {
+		@include ff($ff_F, $b, 1.8rem);
+		line-height: 22px;
+	}
+
+	h5 {
+		@include ff($ff_F, $b, 1.4rem);
+		line-height: 18px;
+	}
+
+	.text {
+		&--big {
+			@include ff($ff_F, $l, 1.5rem);
+			line-height: 22px;
+		}
+	}
+}
+
+@media screen and(min-width: 320px) {
+	.text {
+		&--big {
+			@include ff($ff_F, $l, 1.5rem);
+			line-height: 22px;
+		}
+	}
+}
+
+// ------------------------------------------------
+// --------------UNIC BUTTONS----------------------
+// ------------------------------------------------
+
+.btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	max-width: 220px;
+	min-width: 145px;
+	max-height: 50px;
+	border-radius: 32.5px;
+	color: $white;
+	@include ff($ff_F, $b, 1.6rem);
+	line-height: 20px;
+	padding: 19px 26px 21px 26px;
+	background: $btn_background;
+
+	&:hover {
+		box-shadow: 0px 10px 20px rgba(255, 45, 35, 0.3);
+	}
+}
+
+.burger-btn {
+	display: none;
+	margin: 0 10px;
+	position: fixed;
+	width: 28px;
+	height: 28px;
+	top: 15px;
+	right: 5px;
+	background: url('../img/svg/burger-icon.svg') no-repeat center / contain;
+	font-size: 1.8rem;
+	color: $white;
+
+	&.active {
+		background: url('../img/svg/close-icon.svg') no-repeat center / contain;
+	}
+}
+
+// ------------------------------------------------
+// ------------ Base Animations -------------------
+// ------------------------------------------------
+
+@-webkit-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+
+@-webkit-keyframes fadeInUp {
+	from {
+		transform: translate3d(0, 30px, 0);
+		visibility: hidden;
+	}
+
+	to {
+		transform: translate3d(0, 0, 0);
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+@keyframes fadeInUp {
+	from {
+		transform: translate3d(0, 30px, 0);
+		visibility: hidden;
+	}
+
+	to {
+		transform: translate3d(0, 0, 0);
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fadeInDown {
+	from {
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
+	}
+
+	to {
+		transform: translate3d(0, 20px, 0);
+		opacity: 0;
+	}
+}
+
+@keyframes fadeInDown {
+	from {
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
+	}
+
+	to {
+		transform: translate3d(0, 20px, 0);
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes zoomIn {
+	from {
+		transform: scale(0);
+		opacity: 0;
+	}
+
+	to {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes zoomIn {
+	from {
+		transform: scale(0);
+		opacity: 0;
+	}
+
+	to {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes zoomOut {
+	from {
+		transform: scale(1);
+	}
+
+	to {
+		transform: scale(0);
+	}
+}
+
+@keyframes zoomOut {
+	from {
+		transform: scale(1);
+	}
+
+	to {
+		transform: scale(0);
+	}
+}
