@@ -1,0 +1,29 @@
+// Импорты стилей, css-фреймворков, переменных и т.п.
+@import './imports.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: $white;
+  overflow-x: hidden;
+
+  @include media-min {
+    min-width: 320px;
+  }
+}
+
+// Оболочка wrapper
+#app {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+  min-height: 100dvh;
+  overflow: auto;
+}
